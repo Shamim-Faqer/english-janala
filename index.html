@@ -18,6 +18,9 @@
   <script src="https://kit.fontawesome.com/12fa1ca329.js" crossorigin="anonymous"></script>
   
   <title>English Janala</title>
+  <!-- CSS File -->
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body class="p-2 md:p-4 bg-gray-50">
   
@@ -66,7 +69,7 @@
         <div class="space-y-4 w-full max-w-md">
           <input type="text" placeholder="Your name" class="input input-bordered input-lg w-full" />
           <input type="password" placeholder="Password" class="input input-bordered input-lg w-full" />
-          <button class="btn btn-primary btn-lg w-full">Get Started</button>
+          <button class="btn btn-primary btn-lg w-fit">Get Started</button>
         </div>
       </div>
       
@@ -79,66 +82,28 @@
     
     <!-- Learn Vocabulary Section -->
     <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
-      
+      <!-- Levels -->
       <div class="text-center mb-8 md:mb-12 lg:mb-16">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6">
           <span class="text-primary">Let's</span> 
           <span class="text-gray-800">Learn Vocabularies</span>
         </h2>
-        <p class="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
+        <p class="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto py-6">
           Select a lesson category to begin your vocabulary journey
         </p>
+        <div id="levelContainer" class="flex flex-wrap gap-4 md:gap-6 lg:gap-8">
+          
+        </div>
       </div>
+    
       
-      <!-- Vocabulary Buttons Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 lg:gap-6 mb-8 md:mb-12">
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Beginner</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Intermediate</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Advanced</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Business</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Travel</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Academic</span>
-        </button>
-        
-        <button class="btn btn-outline btn-primary h-24 md:h-32 flex flex-col gap-2 p-2 md:p-4">
-          <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i>
-          <span class="text-xs md:text-sm">Daily Life</span>
-        </button>
-      </div>
-      
-      <!-- Selection Output -->
-      <div class="text-center bg-base-100 rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 max-w-4xl mx-auto">
-        <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 text-gray-800">
-          একটি Lesson Select করুন।
-        </h3>
-        <p class="text-gray-600 text-sm md:text-base">
-          উপরের যে কোন একটি বিভাগ নির্বাচন করে আপনার শেখা শুরু করুন। প্রতিটি বিভাগে ৫০+ শব্দভাণ্ডার এবং অনুশীলনী রয়েছে।
-        </p>
+      <!-- Words Output -->
+      <div id="displayWordContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:gap-12 text-center bg-base-100 rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 max-w-4xl mx-auto">
+
       </div>
       
     </section>
+ 
     
     <!-- FAQ Section -->
     <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
@@ -269,6 +234,6 @@
       
     </div>
   </footer>
-  
+  <script src="script.js" ></script>
 </body>
 </html>
