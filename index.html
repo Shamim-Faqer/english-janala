@@ -18,8 +18,8 @@
   <script src="https://kit.fontawesome.com/12fa1ca329.js" crossorigin="anonymous"></script>
   
   <title>English Janala</title>
-  <!-- CSS File -->
-  <link rel="stylesheet" href="style.css">
+<!--   CSS file -->
+<link rel="stylesheet" href="style.css">
   
 </head>
 <body class="p-2 md:p-4 bg-gray-50">
@@ -28,7 +28,7 @@
   <header class="sticky top-0 z-10">
     <div class="navbar bg-base-100 shadow-xl px-4 md:px-8 lg:px-12 py-2 md:py-4">
       <div class="flex-1 flex items-center justify-center md:justify-start gap-2">
-        <span class="font-bold text-lg md:text-xl text-primary">English</span> 
+        <span class="font-bold text-sm md:text-xl text-primary">English</span> 
         <img src="assets/logo.png" alt="Logo" class="h-8 md:h-10 lg:h-12 w-auto" />
         <span class="font-bold text-lg md:text-xl text-primary bangla-font">জানালা</span>
       </div>
@@ -63,13 +63,13 @@
         </h1>
         
         <p class="text-base md:text-lg lg:text-xl text-gray-700 bangla-font leading-relaxed">
-          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+          আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
         </p>
         
         <div class="space-y-4 w-full max-w-md">
           <input type="text" placeholder="Your name" class="input input-bordered input-lg w-full" />
           <input type="password" placeholder="Password" class="input input-bordered input-lg w-full" />
-          <button class="btn btn-primary btn-lg w-fit">Get Started</button>
+          <button class="btn btn-primary btn-lg w-full">Get Started</button>
         </div>
       </div>
       
@@ -82,32 +82,41 @@
     
     <!-- Learn Vocabulary Section -->
     <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
-      <!-- Levels -->
+      
       <div class="text-center mb-8 md:mb-12 lg:mb-16">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6">
           <span class="text-primary">Let's</span> 
           <span class="text-gray-800">Learn Vocabularies</span>
         </h2>
-        <p class="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto py-6">
+        <p class="text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto">
           Select a lesson category to begin your vocabulary journey
         </p>
-        <div id="levelContainer" class="flex flex-wrap gap-4 md:gap-6 lg:gap-8">
-          
-        </div>
       </div>
-    
       
-      <!-- Words Output -->
-      <div id="displayWordContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:gap-12 text-primary font-bold justify-center items-center  bg-primary-content rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 max-w-fit mx-auto">
-    <div class="text-center max-w-full lg:col-span-3 md:col-span-2">
-      <p class="text-center bangla-text md:text-xl lg:text-3xl">আপনি এখনো কোন Lesson Select করেন নি </p>
-      <h2 class="text-center bangla-text">একটি Lesson Select করুন।</h2>
-    </div>
+      <!-- Vocabulary Buttons Grid -->
+      <div id="levelContainer" class="text-center bg-base-100 rounded-2xl shadow-lg flex flex-wrap justify-center gap-4 max-w-full px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16 md:gap-8 lg:gap-12 mb-8 md:mb-12 lg:mb-16">
+        
       </div>
+      
+      <!-- Level Selection Output -->
+      <div id="wordsContainer" class="text-center bg-base-100 rounded-2xl shadow-lg grid md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-full px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16 md:gap-8 lg:gap-12 mb-8 md:mb-12 lg:mb-16">
+       <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 text-gray-800">
+          একটি Lesson Select করুন।
+        </h3>
+        <p class="text-gray-600 text-sm md:text-base">
+          উপরের যে কোন একটি বিভাগ নির্বাচন করে আপনার শেখা শুরু করুন। প্রতিটি বিভাগে ৫০+ শব্দভাণ্ডার এবং অনুশীলনী রয়েছে।
+        </p>
+      </div>
+      
+    
+
+        
+        
+        
+      
+      
       
     </section>
- 
-
     
     <!-- FAQ Section -->
     <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
@@ -190,6 +199,26 @@
     </section>
     
   </main>
+
+
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="detailsConatiner">
+     
+     
+
+    
+    </div>
+   
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+    
+  </div>
+</dialog>
   
   <!-- Footer -->
   <footer class="bg-base-200 mt-8 md:mt-12 lg:mt-16">
@@ -238,6 +267,8 @@
       
     </div>
   </footer>
-  <script src="script.js" ></script>
+  
+  <!-- JavaScript -->
+<script src="./script.js"></script>
 </body>
-</html>
+</html> 

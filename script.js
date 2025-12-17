@@ -1,60 +1,89 @@
-alert("eidai😅")
-const loadLevel = () => {
-  fetch('https://openapi.programming-hero.com/api/levels/all')
-    .then(res => res.json())
-    .then(json => {
-      displayLevel(json.data);
-    })
-    .catch(err => console.error(err));
+const loadLesson = () => {
+fetch('https://openapi.programming-hero.com/api/levels/all')
+.then(res => res.json())
+.then(data => {
+displayLesson(data.data);
+})
+.catch(err => console.error(err));
 };
 
-const displayLevel = (lesson) => {
-  // 1. Get the Container
-  const levelContainer = document.getElementById("levelContainer");
-  levelContainer.innerHTML="";
-  
-  // 2. Get every level
-  lesson.forEach((lesson) => {
-      // 2.1. Create an Element
-      const btnDiv = document.createElement("div");
-      btnDiv.innerHTML = `<button onClick=" displayWord(${lesson.level_no})" class ="btn btn-outline btn-primary flex flex-col gap-2 p-2 md:p-4">${lesson.level_no}, ${lesson.lessonName}</button>`;
-   // 2.2. Append Container
-   levelContainer.append(btnDiv);
-  } );
-};
+
 
 const displayWord = (id) => {
-  const url = `https://openapi.programming-hero.com/api/level/${id}`;
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      displayWords(data.data);
-    })
-    .catch(err => console.error(err));
+const url = `https://openapi.programming-hero.com/api/level/${id}`; 
+fetch(url)
+.then(res => res.json())
+.then(data => {
+displayWords(data.data);
+})
+.catch(err => console.error(err));
+}
+
+const loadDetails = (id) => {
+const url = `https://openapi.programming-hero.com/api/word/${id}`; 
+fetch(url)
+.then(res => res.json())
+.then(data => {
+displayDetails(data.data);
+})
+.catch(err => console.error(err));
+
 };
+
+const displayDetails = (details) => {
+
+
+const detailsContainer = document.getElementById("detailsConatiner"); 
+detailsContainer.innerHTML= `<div class=""> 
+    <h2 class="text-2xl font-bold"> ${details.word} (<i class="fa-solid fa-microphone-lines"></i> :${ details.pronunciation}) </h2> 
+</div> 
+<div class=""> 
+    <h2 class="font-bold">Meaning</h2> 
+    <p>${details.meaning}</p> 
+</div> 
+<div class=""> 
+    <h2 class="font-bold">Example</h2> 
+    <p>${details.sentence}</p> 
+</div> 
+`;
+document.getElementById("my_modal_5").showModal();
+
+}
 
 const displayWords = (words) => {
-  const displayWordContainer = document.getElementById("displayWordContainer");
-  displayWordContainer.innerHTML="";
-  if (words.length == 0) {
-    displayWordContainer.innerHTML = `<div class=" grid lg:col-span-full md:col-span-2 items-center justify-center max-w-full  bg-base-300 rounded shadow-lg p-4">
-      <div class="flex flex-1 justify-center items-center"><img  src="assets/alert-error.png" alt=""> </div>
-   <p class="text-center bangla-text">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-   <h2 class="bangla-text text-center">নেক্সট Lesson এ যান</h2>
- </div>`;
-  }
-  
-  words.forEach((words)=>{
-    const wordsDiv = document.createElement ("div");
-    wordsDiv.innerHTML = `<div class=" flex-col max-w-fit bg-base-300 border-white rounded shadow-lg p-4 ">
-   <p class="">Level - ${words.level}</p>
-   <p class="">Word - ${words.word}</p>
-   <p class="">Meaning - ${words.meaning}</p>
-   <p class="">Pronounciation - ${words.pronunciation}</p>
- </div>`;
-    displayWordContainer.append(wordsDiv);
-  } );
-};
+const wordsContainer = document.getElementById("wordsContainer");
+wordsContainer.innerHTML = "";
 
-loadLevel();
+words.forEach((word) => {
+const cards = document.createElement("div");
+cards.innerHTML = `<div class="card bg-primary-content shadow-xl"> 
+    <div class="card-body"> 
+        <p class="">ID - ${word.id}</p> 
+        <h3 class="card-title ">${word.word}</h3> 
+        <p>${word.meaning}</p> 
+        <p class="text-sm text-gray-500">Pronunciation: ${word.pronunciation}</p> 
+        <div class="flex flex-1 justify-between items-center max-w-full "> 
+            <button onclick="loadDetails(${word.id})" class="btn btn-outline btn-primary text-lg border shadow-xl rounded p-1 bg-gray-100"> ⁉️ </button> 
+            <button class="btn btn-outline btn-primary text-lg border shadow-xl rounded p-1 bg-gray-100"> 🔊 </button> 
+        </div> 
+    </div> 
+</div>`;
+wordsContainer.appendChild(cards);
+});
+}
 
+const displayLesson = (lessons) => {
+const levelContainer = document.getElementById("levelContainer");
+levelContainer.innerHTML = "";
+
+for (let lesson of lessons) {
+const btnDiv = document.createElement("div");
+btnDiv.innerHTML = `<button onclick="displayWord(${lesson.level_no})" class="btn btn-outline btn-primary"> 
+    <i class="fa-brands fa-leanpub text-xl md:text-2xl"></i> 
+    <span class="text-xs md:text-sm">Level - ${lesson.level_no}</span> 
+</button>`; // টেমপ্লেট লিটারেলস ঠিক করা হয়েছে
+levelContainer.appendChild(btnDiv);
+}
+}
+
+loadLesson();
